@@ -1,0 +1,18 @@
+{
+  "user_list": [
+    {
+      "name": "Sebastian",
+      "object": "i need help, EMERGENCY !!!",
+      "content": "Assets/Mail/Sebastian/Sebastian.txt",
+      "files": [
+        "Assets/Mail/Sebastian/error_log1.bin"
+      ]
+    },
+    {
+      "name": "Chris",
+      "object": "What the f*** is happening !!!",
+      "content": "Assets/Mail/Chris/Chris.txt",
+      "files": null
+    }
+  ]
+}
