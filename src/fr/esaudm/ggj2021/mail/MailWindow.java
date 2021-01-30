@@ -61,6 +61,7 @@ public class MailWindow extends JPanel {
         }
         this.mailWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.mailWindow.setContentPane(this);
+        this.mailWindow.setContentPane(new JScrollPane(this));
 
         this.updatePanel();
 

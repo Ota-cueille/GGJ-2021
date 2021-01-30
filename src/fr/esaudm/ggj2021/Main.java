@@ -3,6 +3,7 @@ import fr.esaudm.ggj2021.mail.MailWindow;
 
 import fr.esaudm.ggj2021.binedit.BinaryEditorWindow;
 import fr.esaudm.ggj2021.binedit.BinaryText;
+import fr.esaudm.ggj2021.reminder.ReminderWindow;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +16,8 @@ public class Main {
         System.out.print("$ ");
         Scanner scanner = new Scanner(System.in);
         System.out.println(scanner.nextLine());*/
+        MailWindow mw = new MailWindow();
+        ReminderWindow rw = new ReminderWindow();
     }
 
 }
