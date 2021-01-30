@@ -10,6 +10,10 @@ public abstract class Command {
 
     static {
         Command.addCommandParser(cmd -> cmd.startsWith("mail") ? new MailCommand() : null);
+        Command.addCommandParser(cmd -> cmd.startsWith("binedit") ? new BinEditCommand() : null);
+        Command.addCommandParser(cmd -> cmd.startsWith("notepad") ? new NotepadCommand() : null);
+        Command.addCommandParser(cmd -> cmd.startsWith("help") ? new HelpCommand() : null);
+        Command.addCommandParser(cmd -> cmd.startsWith("tutorial") ? new TutorialCommand() : null);
     }
 
     private static void addCommandParser(Function<String, Command> parser) {
