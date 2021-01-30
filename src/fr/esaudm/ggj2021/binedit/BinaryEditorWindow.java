@@ -1,5 +1,6 @@
 package fr.esaudm.ggj2021.binedit;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
@@ -9,8 +10,6 @@ import javax.swing.text.Highlighter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.File;
 
 public class BinaryEditorWindow extends JPanel implements ActionListener, CaretListener {
@@ -61,7 +60,6 @@ public class BinaryEditorWindow extends JPanel implements ActionListener, CaretL
     }
 
     public void save() {
-
     }
 
     public void open() {

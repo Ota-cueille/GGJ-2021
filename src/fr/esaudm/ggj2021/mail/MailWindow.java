@@ -10,7 +10,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
 public class MailWindow extends JPanel {
 
