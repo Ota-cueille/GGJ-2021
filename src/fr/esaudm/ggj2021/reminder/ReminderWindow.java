@@ -37,6 +37,7 @@ public class ReminderWindow extends JPanel implements MouseListener {
         if(e.getButton() == MouseEvent.BUTTON3 && e.getSource() == this && maximum < 25) {
             JTextArea textArea = new JTextArea(7, 20);
             textArea.setLineWrap(true);
+            textArea.setWrapStyleWord(true);
             textArea.addMouseListener(this);
             JScrollPane sp = new JScrollPane(textArea);
             this.add(sp);

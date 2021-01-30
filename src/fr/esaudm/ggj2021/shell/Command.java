@@ -14,6 +14,7 @@ public abstract class Command {
         Command.addCommandParser(cmd -> cmd.startsWith("notepad") ? new NotepadCommand() : null);
         Command.addCommandParser(cmd -> cmd.startsWith("help") ? new HelpCommand() : null);
         Command.addCommandParser(cmd -> cmd.startsWith("tutorial") ? new TutorialCommand() : null);
+        Command.addCommandParser(cmd -> cmd.startsWith("quit") ? new QuitCommand() : null);
     }
 
     private static void addCommandParser(Function<String, Command> parser) {

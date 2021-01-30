@@ -1,6 +1,7 @@
 package fr.esaudm.ggj2021.shell;
 
 import fr.esaudm.ggj2021.mail.MailWindow;
+import fr.esaudm.ggj2021.reminder.ReminderWindow;
 import fr.esaudm.ggj2021.utils.Utils;
 
 public class NotepadCommand extends Command {
@@ -11,7 +12,7 @@ public class NotepadCommand extends Command {
         Utils.sleep(1000);
         System.out.println("Starting OpenGL shaders...");
         Utils.sleep(600);
-        System.out.println("Oops, notepad program is not implemented yet O_o");
+        new ReminderWindow();
         System.out.println("Program started successfully");
     }
 
