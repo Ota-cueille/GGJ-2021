@@ -19,6 +19,7 @@ public abstract class Command {
         Command.addCommandParser(cmd -> cmd.startsWith("push") ? new PushCommand(cmd) : null);
         Command.addCommandParser(cmd -> cmd.startsWith("cd") ? new ChangeDirectoryCommand(cmd) : null);
         Command.addCommandParser(cmd -> cmd.startsWith("ls") ? new ListFilesCommand() : null);
+        Command.addCommandParser(cmd -> cmd.startsWith("openpdf") ? new OpenPDFCommand(cmd) : null);
     }
 
     private static void addCommandParser(Function<String, Command> parser) {
