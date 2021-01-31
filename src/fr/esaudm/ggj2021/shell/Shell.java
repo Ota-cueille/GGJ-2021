@@ -22,11 +22,6 @@ public class Shell {
 
     public void loop() {
         while (this.running) {
-            /*if((MailWindow)Main.getWindowOfType(Main.WindowType.MAIL) != null && ((MailWindow)Main.getWindowOfType(Main.WindowType.MAIL)).hasNotBeenLoaded(i)) {
-                MailWindow mailbox = (MailWindow)Main.getWindowOfType(Main.WindowType.MAIL);
-                mailbox.newMessageReceived(i);
-                i++;
-            }*/
             System.out.print(currentDirectory + " $ ");
             Scanner scanner = new Scanner(System.in);
             Command cmd = Command.parseCommand(scanner.nextLine());
