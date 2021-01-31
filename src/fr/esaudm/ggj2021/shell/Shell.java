@@ -11,7 +11,7 @@ public class Shell {
     public Shell() {
         currentDirectory = new File("Game/").getAbsolutePath();
         System.out.println("Begining Jean-Mi Shell");
-        System.out.println("Type a help to start");
+        System.out.println("Type a command to start (eg : help)");
         this.loop();
 
     }

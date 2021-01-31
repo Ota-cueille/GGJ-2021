@@ -57,7 +57,7 @@ public class JMJTrojanHorse extends JPanel {
         if (this.currentX > END_X) {
             rotation = (float) Math.toRadians(90 - this.currentX + END_X);
         }
-        AffineTransform tx = AffineTransform.getRotateInstance(rotation, Math.min(this.currentX, END_X), 150);
+        AffineTransform tx = AffineTransform.getRotateInstance(rotation, Math.min(this.currentX, END_X) + this.jmj.getWidth() / 20f, 150 + this.jmj.getHeight() / 20f);
         AffineTransform defaultTransform = graphics.getTransform();
         graphics.setTransform(tx);
         graphics.drawImage(this.jmj, Math.min(this.currentX, END_X), 150, this.jmj.getWidth() / 10, this.jmj.getHeight() / 10, null);
