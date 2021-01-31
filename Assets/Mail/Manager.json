@@ -5,23 +5,16 @@
       "object": "i need help, EMERGENCY !!!",
       "content": "Assets/Mail/Menna/Menna.txt",
       "files": [
-        "Assets/Mail/Menna/error_log.bin",
-        "Assets/Mail/Menna/error_log2.bin"
+        "Assets/Mail/Menna/error_log.bin"
       ]
     },
     {
       "name": "Christian.Desiree@gmail.com",
-      "object": "What the f*** is happening !!!",
+      "object": "about our update",
       "content": "Assets/Mail/Christian/Christian.txt",
       "files": [
         "Infected.txt"
       ]
-    },
-    {
-      "name": "Wynter.Hooker@gmail.com",
-      "object": "random",
-      "content": "Assets/Mail/Wynter/Wynter.txt",
-      "files": null
     },
     {
       "name": "Chiyo.Ikeda@ezweb.ne.jp ",
