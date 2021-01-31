@@ -1,6 +1,7 @@
 package fr.esaudm.ggj2021.binedit;
 
-import javax.imageio.ImageIO;
+import fr.esaudm.ggj2021.Main;
+
 import javax.swing.*;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
@@ -27,6 +28,7 @@ public class BinaryEditorWindow extends JPanel implements ActionListener, CaretL
 
     public BinaryEditorWindow() {
         this.window = new JFrame("Binary Editor");
+        this.window.addWindowListener(new Main.WindowClosingHandler(this));
         this.window.setContentPane(this);
         this.window.setSize(1000, 800);
         GridBagConstraints constraints = new GridBagConstraints();
@@ -141,4 +143,6 @@ public class BinaryEditorWindow extends JPanel implements ActionListener, CaretL
             this.binaryEditor.setText(this.binaryText.getBinary());
         }
     }
+
+
 }

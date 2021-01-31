@@ -8,8 +8,7 @@ public class Shell {
 
     public Shell() {
         System.out.println("Begining Jean-Mi Shell");
-        System.out.println("Type a command to start. Eg : tutorial (to learn what this game is about), help (to get the list of commands)");
-
+        System.out.println("Type a help to start");
         this.loop();
 
     }

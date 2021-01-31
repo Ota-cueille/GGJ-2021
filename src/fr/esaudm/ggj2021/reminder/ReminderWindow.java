@@ -1,9 +1,13 @@
 package fr.esaudm.ggj2021.reminder;
 
+import fr.esaudm.ggj2021.Main;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.util.HashMap;
 
 public class ReminderWindow extends JPanel implements MouseListener {
@@ -15,6 +19,7 @@ public class ReminderWindow extends JPanel implements MouseListener {
     public ReminderWindow() {
         this.shitty = new HashMap<JTextArea, JScrollPane>();
         this.reminderWindow = new JFrame();
+        this.reminderWindow.addWindowListener(new Main.WindowClosingHandler(this));
         this.reminderWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.reminderWindow.setSize(new Dimension(800, 600));
         this.reminderWindow.setContentPane(this);
@@ -56,12 +61,18 @@ public class ReminderWindow extends JPanel implements MouseListener {
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
+    public void mouseEntered(MouseEvent e) { }
 
     @Override
-    public void mouseExited(MouseEvent e) {
+    public void mouseExited(MouseEvent e) { }
 
+    public void addTrojanHorse() {
+        //this.reminderWindow.setVisible(false);
+        new JMJTrojanHorse(this.reminderWindow, this);
+        //this.setEnabled(false);
     }
+
+    /*public void stopTrojanHorse() {
+        this.reminderWindow.setContentPane(this);
+    }*/
 }

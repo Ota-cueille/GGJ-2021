@@ -1,5 +1,6 @@
 package fr.esaudm.ggj2021.mail;
 
+import fr.esaudm.ggj2021.Main;
 import fr.esaudm.ggj2021.folderSystem.GameFile;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -51,6 +52,7 @@ public class MailWindow extends JPanel {
         }
 
         this.mailWindow = new JFrame();
+        this.mailWindow.addWindowListener(new Main.WindowClosingHandler(this));
         this.mailWindow.setSize(new Dimension(600, 300));
         this.mailWindow.setTitle("St-Mich M@il");
         try{
