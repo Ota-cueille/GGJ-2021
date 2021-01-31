@@ -2,6 +2,7 @@ package fr.esaudm.ggj2021.mail;
 
 import fr.esaudm.ggj2021.Main;
 import fr.esaudm.ggj2021.folderSystem.GameFile;
+import fr.esaudm.ggj2021.utils.Utils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -15,6 +16,7 @@ import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class MailWindow extends JPanel {
 
@@ -40,7 +42,7 @@ public class MailWindow extends JPanel {
         this.mailWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.mailWindow.setContentPane(this);
         this.mailWindow.setContentPane(new JScrollPane(this));
-        
+        new MailWindow.SendingThread().start();
         this.newMessageReceived(0);
         this.notLoaded.put(0, false);
         
@@ -113,4 +115,19 @@ public class MailWindow extends JPanel {
     public Boolean hasNotBeenLoaded(int index) {
         return (this.notLoaded.get(index) && index < this.user_message_data.size());
     }
+
+    private class SendingThread extends Thread {
+        @Override
+        public void run() {
+            super.run();
+            int i = 0;
+            Random random = new Random();
+            while (MailWindow.this.hasNotBeenLoaded(i)) {
+                Utils.sleep((random.nextInt(20) + 10) * 1000);
+                MailWindow.this.newMessageReceived(i);
+                i++;
+            }
+        }
+    }
+
 }
