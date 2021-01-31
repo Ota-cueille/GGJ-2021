@@ -13,6 +13,7 @@ public class GameFile {
 
     public GameFile(String path) {
         this.binary = new File(path);
+        this.infected = false;
         if(this.binary.getName().equals("Infected.txt")) {
             this.infected = true;
         }

@@ -5,7 +5,7 @@
       "object": "i need help, EMERGENCY !!!",
       "content": "Assets/Mail/Menna/Menna.txt",
       "files": [
-        "Assets/Mail/Menna/error_log.bin"
+        "Assets/Mail/Menna/error_log.pwddb"
       ]
     },
     {
@@ -20,31 +20,41 @@
       "name": "Chiyo.Ikeda@ezweb.ne.jp ",
       "object": "broken site web",
       "content": "Assets/Mail/Chiyo/Chiyo.txt",
-      "files": null
+      "files": [
+        "Assets/Mail/Chiyo/error_log.pwddb"
+      ]
     },
     {
       "name": "elizabeth.ilez@gmail.com",
-      "object": "Hey, do you need help ?",
+      "object": "from the great anything",
       "content": "Assets/Mail/Elizabeth/Elizabeth.txt",
-      "files": null
+      "files": [
+        "Assets/Mail/Elizabeth/error_log.pwddb"
+      ]
     },
     {
       "name": "michaela.shelley@gmail.com",
-      "object": "Hey, do you need help ?",
+      "object": "can't get my passwords !!",
       "content": "Assets/Mail/Michaela/Michaela.txt",
-      "files": null
+      "files": [
+        "Assets/Mail/Michaele/error_log.pwddb"
+      ]
     },
     {
       "name": "jane.coleman@outlook.com",
-      "object": "Hey, do you need help ?",
+      "object": "Hey, refund me",
       "content": "Assets/Mail/Jane/Jane.txt",
-      "files": null
+      "files": [
+        "Assets/Mail/Jane/error_log.pwddb"
+      ]
     },
     {
       "name": "katy.howell@hotmail.com",
-      "object": "Hey, do you need help ?",
+      "object": "pfff, so bad",
       "content": "Assets/Mail/Katy/Katy.txt",
-      "files": null
+      "files": [
+        "Assets/Mail/Katy/error_log.pwddb"
+      ]
     }
   ]
 }
