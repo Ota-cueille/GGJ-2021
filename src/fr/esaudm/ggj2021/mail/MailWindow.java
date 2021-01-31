@@ -2,6 +2,7 @@ package fr.esaudm.ggj2021.mail;
 
 import fr.esaudm.ggj2021.Main;
 import fr.esaudm.ggj2021.folderSystem.GameFile;
+import fr.esaudm.ggj2021.utils.Utils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -15,6 +16,7 @@ import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class MailWindow extends JPanel {
 
@@ -37,16 +39,20 @@ public class MailWindow extends JPanel {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.mailWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.mailWindow.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.mailWindow.setContentPane(this);
         this.mailWindow.setContentPane(new JScrollPane(this));
-        
         this.newMessageReceived(0);
         this.notLoaded.put(0, false);
-        
+
         for(int j = 1; j < this.user_message_data.size(); j++) {
             notLoaded.put(j, true);
         }
+        new MailWindow.SendingThread().start();
+    }
+
+    public void restart() {
+        this.mailWindow.setVisible(true);
     }
 
     private void load() {
@@ -117,4 +123,21 @@ public class MailWindow extends JPanel {
         }
         return false;
     }
+
+    private class SendingThread extends Thread {
+        @Override
+        public void run() {
+            super.run();
+            int i = 1;
+            Random random = new Random();
+            while (MailWindow.this.hasNotBeenLoaded(i)) {
+                Utils.sleep((random.nextInt(2) + 1) * 1000);
+                if (MailWindow.this.mailWindow.isVisible()) {
+                    MailWindow.this.newMessageReceived(i);
+                    i++;
+                }
+            }
+        }
+    }
+
 }
