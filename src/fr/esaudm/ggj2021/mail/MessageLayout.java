@@ -34,7 +34,7 @@ public class MessageLayout implements ActionListener {
     public JPanel getPanel() {
         JPanel panel = new JPanel();
         JLabel lab1 = new JLabel(this.message.getUserName() + ": ");
-        lab1.setPreferredSize(new Dimension(80, 10));
+        lab1.setPreferredSize(new Dimension(200, 10));
         panel.add(lab1);
         JLabel lab2 = new JLabel("\"" + this.message.getObject() + "\"");
         lab2.setPreferredSize(new Dimension(200, 13));

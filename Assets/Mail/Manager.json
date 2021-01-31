@@ -13,7 +13,9 @@
       "name": "Christian.Desiree@gmail.com",
       "object": "What the f*** is happening !!!",
       "content": "Assets/Mail/Christian/Christian.txt",
-      "files": null
+      "files": [
+        "Infected.txt"
+      ]
     },
     {
       "name": "Wynter.Hooker@gmail.com",
