@@ -1,12 +1,16 @@
 package fr.esaudm.ggj2021.shell;
 
+import fr.esaudm.ggj2021.Main;
+import fr.esaudm.ggj2021.mail.MailWindow;
+
+import javax.swing.*;
 import java.io.File;
 import java.util.Scanner;
 
 public class Shell {
-
     private Boolean running = true;
     public static String currentDirectory;
+    private int i = 1;
 
     public Shell() {
         currentDirectory = new File("Game/").getAbsolutePath();
@@ -18,6 +22,11 @@ public class Shell {
 
     public void loop() {
         while (this.running) {
+            if((MailWindow)Main.getWindowOfType(Main.WindowType.MAIL) != null && ((MailWindow)Main.getWindowOfType(Main.WindowType.MAIL)).hasNotBeenLoaded(i)) {
+                MailWindow mailbox = (MailWindow)Main.getWindowOfType(Main.WindowType.MAIL);
+                mailbox.newMessageReceived(i);
+                i++;
+            }
             System.out.print(currentDirectory + " $ ");
             Scanner scanner = new Scanner(System.in);
             Command cmd = Command.parseCommand(scanner.nextLine());

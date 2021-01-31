@@ -18,7 +18,7 @@
     },
     {
       "name": "Chiyo.Ikeda@ezweb.ne.jp ",
-      "object": "random",
+      "object": "broken site web",
       "content": "Assets/Mail/Chiyo/Chiyo.txt",
       "files": null
     },
@@ -44,30 +44,6 @@
       "name": "katy.howell@hotmail.com",
       "object": "Hey, do you need help ?",
       "content": "Assets/Mail/Katy/Katy.txt",
-      "files": null
-    },
-    {
-      "name": "adil.dominguez@gmail.com",
-      "object": "Hey, do you need help ?",
-      "content": "Assets/Mail/Adil/Adil.txt",
-      "files": null
-    },
-    {
-      "name": "layton.cobb@gmail.com",
-      "object": "Hey, do you need help ?",
-      "content": "Assets/Mail/Layton/Layton.txt",
-      "files": null
-    },
-    {
-      "name": "ioan.mejia@hotmail.es",
-      "object": "Hey, do you need help ?",
-      "content": "Assets/Mail/Ioan/Ioan.txt",
-      "files": null
-    },
-    {
-      "name": "mark.hoffman@gmail.com",
-      "object": "Hey, do you need help ?",
-      "content": "Assets/Mail/Mark/Mark.txt",
       "files": null
     }
   ]
