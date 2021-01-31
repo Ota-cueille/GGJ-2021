@@ -10,9 +10,11 @@ import javax.swing.text.Highlighter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.*;
 
-public class BinaryEditorWindow extends JPanel implements ActionListener, CaretListener {
+public class BinaryEditorWindow extends JPanel implements ActionListener, CaretListener, KeyListener {
 
     private final JFrame window;
     private final JTextArea binaryEditor = new JTextArea(0, 71);
@@ -21,16 +23,20 @@ public class BinaryEditorWindow extends JPanel implements ActionListener, CaretL
     private final Button openButton = new Button("Open");
     private Object binaryHighlightInfo;
     private Object utfHighlightInfo;
+    private final BinaryText binaryText = new BinaryText();
 
     public BinaryEditorWindow() {
         this.window = new JFrame("Binary Editor");
-        this.window.setVisible(true);
         this.window.setContentPane(this);
         this.window.setSize(1000, 800);
         GridBagConstraints constraints = new GridBagConstraints();
         this.setLayout(new GridBagLayout());
         this.binaryEditor.addCaretListener(this);
         this.utfEditor.addCaretListener(this);
+        this.binaryEditor.addKeyListener(this);
+        this.utfEditor.addKeyListener(this);
+        this.binaryEditor.setWrapStyleWord(true);
+        this.utfEditor.setWrapStyleWord(true);
         this.binaryEditor.setLineWrap(true);
         this.utfEditor.setLineWrap(true);
         constraints.fill = GridBagConstraints.BOTH;
@@ -48,6 +54,7 @@ public class BinaryEditorWindow extends JPanel implements ActionListener, CaretL
         this.add(this.saveButton, constraints);
         constraints.gridy = 3;
         this.add(this.openButton, constraints);
+        this.window.setVisible(true);
     }
 
     @Override
@@ -60,6 +67,19 @@ public class BinaryEditorWindow extends JPanel implements ActionListener, CaretL
     }
 
     public void save() {
+        FileDialog fileDialog = new FileDialog((Dialog) null, "Save file");
+        fileDialog.setVisible(true);
+        String file = fileDialog.getFile();
+        if (file == null) {
+            return;
+        }
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileDialog.getDirectory() + "/" + file));
+            writer.write(this.utfEditor.getText());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void open() {
@@ -69,10 +89,9 @@ public class BinaryEditorWindow extends JPanel implements ActionListener, CaretL
         if (file == null) {
             return;
         }
-        BinaryText binaryText = new BinaryText();
-        binaryText.open(new File(fileDialog.getDirectory() + "/" + file));
-        this.binaryEditor.setText(binaryText.getBinary());
-        this.utfEditor.setText(binaryText.getText());
+        this.binaryText.open(new File(fileDialog.getDirectory() + "/" + file));
+        this.binaryEditor.setText(this.binaryText.getBinary());
+        this.utfEditor.setText(this.binaryText.getText());
     }
 
 
@@ -103,6 +122,23 @@ public class BinaryEditorWindow extends JPanel implements ActionListener, CaretL
             } catch (BadLocationException exception) {
                 exception.printStackTrace();
             }
+        }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) { }
+
+    @Override
+    public void keyPressed(KeyEvent e) { }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if (e.getSource() == this.binaryEditor) {
+            this.binaryText.setBinary(this.binaryEditor.getText());
+            this.utfEditor.setText(this.binaryText.getText());
+        } else if (e.getSource() == this.utfEditor) {
+            this.binaryText.setText(this.utfEditor.getText());
+            this.binaryEditor.setText(this.binaryText.getBinary());
         }
     }
 }

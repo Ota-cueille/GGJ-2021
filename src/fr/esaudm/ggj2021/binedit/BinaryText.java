@@ -4,36 +4,66 @@ import java.io.*;
 
 public class BinaryText {
 
-    private StringBuilder binary;
-    private StringBuilder text;
+    private String binary;
+    private String text;
 
     public void open(File file) {
-        this.binary = new StringBuilder();
-        this.text = new StringBuilder();
+        StringBuilder binaryBuffer = new StringBuilder();
+        StringBuilder textBuffer = new StringBuilder();
         Reader reader;
-        System.out.println(file.getAbsolutePath());
         try {
             reader = new FileReader(file);
             int character;
             while ((character = reader.read()) != -1) {
-                this.text.append((char) character);
-                if (this.binary.length() != 0) {
-                    this.binary.append(" ");
+                textBuffer.append((char) character);
+                if (binaryBuffer.length() != 0) {
+                    binaryBuffer.append(" ");
                 }
                 for (int i = 7; i >= 0; i--) {
-                    this.binary.append((character >> i) & 1);
+                    binaryBuffer.append((character >> i) & 1);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        this.binary = binaryBuffer.toString();
+        this.text = textBuffer.toString();
     }
 
     public String getText() {
-        return this.text.toString();
+        return this.text;
     }
 
     public String getBinary() {
-        return this.binary.toString();
+        return this.binary;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+        StringBuilder binaryBuffer = new StringBuilder();
+        for (char character : this.text.toCharArray()) {
+            if (binaryBuffer.length() != 0) {
+                binaryBuffer.append(" ");
+            }
+            for (int i = 7; i >= 0; i--) {
+                binaryBuffer.append((character >> i) & 1);
+            }
+        }
+        this.binary = binaryBuffer.toString();
+    }
+
+    public void setBinary(String binary) {
+        this.binary = binary;
+        StringBuilder textBuffer = new StringBuilder();
+        byte currentByte = 0;
+        for (char character : (this.binary + ' ').toCharArray()) {
+            if (character == ' ') {
+                textBuffer.append((char) currentByte);
+                currentByte = 0;
+                continue;
+            }
+            currentByte = (byte) ((currentByte << 1) + (character == '0' ? 0 : 1));
+        }
+        this.text = textBuffer.toString();
     }
 }
