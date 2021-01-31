@@ -1,0 +1,11 @@
+Hi !
+I don't want to be mean, but your site is broken !
+I just subscribed yesterday, I saved my GitHub password,
+but this morning, I wanted to see who pushed on the
+project I am working on for work, but I could not
+connect to GitHub : when I ask storemypasswords.com
+to give me the password, it gave me a file instead...
+I think it is a log file, but I didn't really want to
+open it. So I paid for something that doesn't work !
+I want to be refunded.
+Gratefully yours Jane
