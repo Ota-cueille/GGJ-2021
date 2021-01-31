@@ -39,16 +39,20 @@ public class MailWindow extends JPanel {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.mailWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.mailWindow.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.mailWindow.setContentPane(this);
         this.mailWindow.setContentPane(new JScrollPane(this));
-        new MailWindow.SendingThread().start();
         this.newMessageReceived(0);
         this.notLoaded.put(0, false);
-        
+
         for(int j = 1; j < this.user_message_data.size(); j++) {
             notLoaded.put(j, true);
         }
+        new MailWindow.SendingThread().start();
+    }
+
+    public void restart() {
+        this.mailWindow.setVisible(true);
     }
 
     private void load() {
@@ -124,12 +128,14 @@ public class MailWindow extends JPanel {
         @Override
         public void run() {
             super.run();
-            int i = 0;
+            int i = 1;
             Random random = new Random();
             while (MailWindow.this.hasNotBeenLoaded(i)) {
-                Utils.sleep((random.nextInt(20) + 10) * 1000);
-                MailWindow.this.newMessageReceived(i);
-                i++;
+                Utils.sleep((random.nextInt(2) + 1) * 1000);
+                if (MailWindow.this.mailWindow.isVisible()) {
+                    MailWindow.this.newMessageReceived(i);
+                    i++;
+                }
             }
         }
     }
