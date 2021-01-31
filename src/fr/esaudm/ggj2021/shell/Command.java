@@ -15,6 +15,9 @@ public abstract class Command {
         Command.addCommandParser(cmd -> cmd.startsWith("help") ? new HelpCommand() : null);
         Command.addCommandParser(cmd -> cmd.startsWith("tutorial") ? new TutorialCommand() : null);
         Command.addCommandParser(cmd -> cmd.startsWith("quit") ? new QuitCommand() : null);
+        Command.addCommandParser(cmd -> cmd.startsWith("exit") ? new QuitCommand() : null);
+        Command.addCommandParser(cmd -> cmd.startsWith("push") ? new PushCommand(cmd) : null);
+        Command.addCommandParser(cmd -> cmd.startsWith("cd") ? new ChangeDirectoryCommand(cmd) : null);
     }
 
     private static void addCommandParser(Function<String, Command> parser) {
