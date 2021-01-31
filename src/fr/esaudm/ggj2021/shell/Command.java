@@ -22,6 +22,9 @@ public abstract class Command {
     }
 
     public static Command parseCommand(String cmd) {
+        if (cmd.isBlank()) {
+            return null;
+        }
         for (Function<String, Command> parser : Command.commandParsers) {
             Command commandObj = parser.apply(cmd);
             if (commandObj != null) {

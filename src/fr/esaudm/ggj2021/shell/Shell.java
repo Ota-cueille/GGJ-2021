@@ -19,6 +19,9 @@ public class Shell {
             System.out.print("$ ");
             Scanner scanner = new Scanner(System.in);
             Command cmd = Command.parseCommand(scanner.nextLine());
+            if (cmd == null) {
+                continue;
+            }
             cmd.handle();
             if(cmd.getClass() == QuitCommand.class) {
                 this.running = false;
