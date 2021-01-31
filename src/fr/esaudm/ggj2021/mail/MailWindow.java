@@ -111,6 +111,10 @@ public class MailWindow extends JPanel {
     }
     
     public Boolean hasNotBeenLoaded(int index) {
-        return (this.notLoaded.get(index) && index < this.user_message_data.size());
+        if(this.notLoaded.get(index) != null) {
+            Boolean status = this.notLoaded.get(index);
+            return (status && index < this.user_message_data.size());
+        }
+        return false;
     }
 }
