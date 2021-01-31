@@ -26,12 +26,12 @@ public class MailWindow extends JPanel {
     private ArrayList<MessageLayout> messages;
 
     public MailWindow() {
+        Main.addWindow(this);
         this.notLoaded = new HashMap<Integer, Boolean>();
         this.user_message_data = new ArrayList<JSONObject>();
         this.messages = new ArrayList<MessageLayout>();
         this.load();
         this.mailWindow = new JFrame();
-        this.mailWindow.addWindowListener(new Main.WindowClosingHandler(this));
         this.mailWindow.setSize(new Dimension(600, 300));
         this.mailWindow.setTitle("St-Mich M@il");
         try{
@@ -94,6 +94,7 @@ public class MailWindow extends JPanel {
 
     private void updatePanel() {
         GridBagConstraints gbc = new GridBagConstraints();
+        this.removeAll();
         this.setLayout(new GridBagLayout());
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
@@ -113,6 +114,9 @@ public class MailWindow extends JPanel {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        this.repaint();
+        //this.setVisible(false);
+        //this.setVisible(true);
         this.mailWindow.setVisible(true);
     }
     
@@ -131,7 +135,7 @@ public class MailWindow extends JPanel {
             int i = 1;
             Random random = new Random();
             while (MailWindow.this.hasNotBeenLoaded(i)) {
-                Utils.sleep((random.nextInt(2) + 1) * 1000);
+                Utils.sleep((random.nextInt(20) + 10) * 1000);
                 if (MailWindow.this.mailWindow.isVisible()) {
                     MailWindow.this.newMessageReceived(i);
                     i++;
