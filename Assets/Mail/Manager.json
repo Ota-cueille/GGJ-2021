@@ -4,7 +4,10 @@
       "name": "Menna.Alberghini@hotmail.co.uk",
       "object": "i need help, EMERGENCY !!!",
       "content": "Assets/Mail/Menna/Menna.txt",
-      "files": null
+      "files": [
+        "Assets/Mail/Menna/error_log.bin",
+        "Assets/Mail/Menna/error_log2.bin"
+      ]
     },
     {
       "name": "Christian.Desiree@gmail.com",

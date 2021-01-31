@@ -30,23 +30,25 @@ public class Message {
         this.files = _files;
     }
 
-    public final String getUserName() {
+    public String getUserName() {
         return this.user_name;
     }
 
-    public final String getObject() {
+    public String getObject() {
         return this.object;
     }
 
-    public final String getMessageContent() {
+    public String getMessageContent() {
         return this.content;
     }
 
-    public final int getFileCount() {
+    public int getFileCount() {
         return this.files.size();
     }
 
-    public final ArrayList<GameFile> getFiles() {
-        return this.files;
+    public void downloadFiles() {
+        for(GameFile file : this.files) {
+            file.move("Game/Downloads/");
+        }
     }
 }

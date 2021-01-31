@@ -1,19 +1,22 @@
 package fr.esaudm.ggj2021.folderSystem;
 
 import java.io.File;
-import java.util.Scanner;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class GameFile {
-    private String buffer;
-    private Boolean infested;
+
+    private File binary;
 
     public GameFile(String path) {
+        this.binary = new File(path);
+    }
+
+    public void move(String path) {
+        String new_file_name = path + this.binary.getName();
+        File meh = new File(new_file_name);
         try {
-            File gamefile = new File(path);
-            Scanner reader = new Scanner(gamefile);
-            while (reader.hasNext()) {
-                this.buffer += reader.next();
-            }
+            Files.copy(this.binary.toPath(), meh.toPath());
         } catch (Exception e) {
             e.printStackTrace();
         }
